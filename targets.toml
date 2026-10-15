@@ -1,0 +1,166 @@
+# Downstream projects that lean on the Bio modules the fork touched most:
+# Align, PDB, SeqIO, AlignIO, Phylo, motifs, Blast, SearchIO, Restriction.
+#
+# install: pip specs; "." and ".[extra]" resolve against the checkout (or subdir).
+# tests: a pytest command; -q, junit output and no cache are appended.
+
+# --- synthetic biology stack (Seq, SeqIO, SeqFeature, Restriction, Align, SeqUtils)
+[[target]]
+name = "pydna"
+extra = ["pyahocorasick"]
+repo = "https://github.com/pydna-group/pydna"
+install = [".", "pytest-mock", "pytest-doctestplus"]
+tests = "pytest tests"
+
+[[target]]
+name = "dnachisel"
+extra = ["genome_collector", "primer3-py"]
+repo = "https://github.com/Edinburgh-Genome-Foundry/DnaChisel"
+install = [".[reports]"]
+tests = "pytest tests"
+
+[[target]]
+name = "dnacauldron"
+extra = ["geneblocks"]
+repo = "https://github.com/Edinburgh-Genome-Foundry/DnaCauldron"
+tests = "pytest tests"
+
+[[target]]
+name = "dnafeaturesviewer"
+extra = ["bokeh"]
+repo = "https://github.com/Edinburgh-Genome-Foundry/DnaFeaturesViewer"
+tests = "pytest tests"
+
+[[target]]
+name = "geneblocks"
+repo = "https://github.com/Edinburgh-Genome-Foundry/GeneBlocks"
+tests = "pytest tests"
+
+[[target]]
+name = "goldenhinges"
+pre = ["setuptools<80", "wheel"]
+flags = ["--no-build-isolation"]
+repo = "https://github.com/Edinburgh-Genome-Foundry/GoldenHinges"
+tests = "pytest tests"
+
+[[target]]
+name = "crazydoc"
+extra = ["matplotlib"]
+repo = "https://github.com/Edinburgh-Genome-Foundry/crazydoc"
+tests = "pytest tests"
+
+[[target]]
+name = "primavera"
+repo = "https://github.com/Edinburgh-Genome-Foundry/Primavera"
+tests = "pytest tests"
+
+[[target]]
+name = "cai"
+repo = "https://github.com/Benjamin-Lee/CodonAdaptationIndex"
+tests = "pytest tests"
+
+# --- phylogenetics and alignment (Phylo, AlignIO, Align, SeqIO, Nexus)
+[[target]]
+name = "augur"
+repo = "https://github.com/nextstrain/augur"
+install = [".[dev]"]
+tests = "pytest tests"
+
+[[target]]
+name = "treetime"
+repo = "https://github.com/neherlab/treetime"
+tests = "pytest test"
+
+[[target]]
+name = "pyvolve"
+repo = "https://github.com/sjspielman/pyvolve"
+tests = "pytest tests"
+
+[[target]]
+name = "seqmagick"
+repo = "https://github.com/fhcrc/seqmagick"
+tests = "pytest seqmagick"
+
+# --- genome annotation and comparative genomics (SeqIO, SearchIO, Blast, SeqFeature)
+[[target]]
+name = "bcbio-gff"
+pre = ["setuptools<80", "wheel"]
+flags = ["--no-build-isolation"]
+patch = "sed -i '/distribute_setup/d;/use_setuptools()/d' setup.py"
+repo = "https://github.com/chapmanb/bcbb"
+subdir = "gff"
+tests = "pytest Tests"
+
+[[target]]
+name = "bakta"
+extra = ["pytest-dependency"]
+repo = "https://github.com/oschwengers/bakta"
+tests = "pytest test"
+
+[[target]]
+name = "panaroo"
+repo = "https://github.com/gtonkinhill/panaroo"
+tests = "pytest tests"
+
+[[target]]
+name = "dnaapler"
+repo = "https://github.com/gbouras13/dnaapler"
+tests = "pytest tests"
+
+[[target]]
+name = "pyani"
+extra = ["intervaltree"]
+repo = "https://github.com/widdowquinn/pyani"
+tests = "pytest tests"
+
+[[target]]
+name = "macsyfinder"
+repo = "https://github.com/gem-pasteur/macsyfinder"
+tests = "pytest tests"
+
+[[target]]
+name = "antismash"
+# antismash asserts that importing Bio.SearchIO.BlastIO emits exactly one deprecation warning; 1.88 emits none.
+patch = "sed -i '/^    assert /d' antismash/common/subprocessing/blast.py"
+repo = "https://github.com/antismash/antismash"
+install = [".[testing]"]
+tests = "pytest antismash"
+timeout = 3600
+
+[[target]]
+name = "crispresso2"
+extra = ["pytest-check"]
+repo = "https://github.com/pinellolab/CRISPResso2"
+tests = "pytest tests/unit_tests"
+
+# --- visualisation (SeqIO, SeqFeature, GenBank)
+[[target]]
+name = "pycirclize"
+repo = "https://github.com/moshi4/pyCirclize"
+tests = "pytest tests"
+
+[[target]]
+name = "pygenomeviz"
+repo = "https://github.com/moshi4/pyGenomeViz"
+tests = "pytest tests"
+
+# --- motifs
+[[target]]
+name = "mdanalysis"
+repo = "https://github.com/MDAnalysis/mdanalysis"
+install = ["MDAnalysis", "MDAnalysisTests"]
+tests = "pytest --pyargs MDAnalysisTests.analysis.test_align"
+
+# --- structures (Bio.PDB)
+[[target]]
+name = "freesasa"
+pre = ["setuptools<80", "wheel", "cython"]
+flags = ["--no-build-isolation"]
+repo = "https://github.com/freesasa/freesasa-python"
+submodules = true
+tests = "pytest test.py"
+
+[[target]]
+name = "graphein"
+repo = "https://github.com/a-r-j/graphein"
+tests = "pytest tests/protein"
