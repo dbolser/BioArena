@@ -76,7 +76,7 @@ def side_python(side, spec, args):
     py = venv / "bin" / "python"
     if not py.exists():
         subprocess.run(["uv", "venv", "--quiet", "--python", args.python, str(venv)], check=True)
-        subprocess.run(["uv", "pip", "install", "--quiet", "--python", str(py), spec], check=True)
+        subprocess.run(["uv", "pip", "install", "--quiet", "--python", str(py), spec, "msgpack"], check=True)
     return py
 
 

@@ -11,7 +11,7 @@
 | crispresso2 | ok | 708 | 696 | 696 | 0 | 0 | 0 | 0 | 0 |
 | dnaapler | ok | 117 | 62 | 62 | 0 | 0 | 0 | 0 | 0 |
 | dnacauldron | ok | 31 | 28 | 28 | 0 | 0 | 0 | 0 | 0 |
-| dnachisel | dropped | 0 | - | - | 0 | 0 | 0 | 0 | 0 |
+| dnachisel | ok | 149 | 144 | 144 | 0 | 0 | 0 | 0 | 0 |
 | dnafeaturesviewer | ok | 20 | 17 | 17 | 0 | 0 | 0 | 0 | 0 |
 | freesasa | dropped | 0 | - | - | 0 | 0 | 0 | 0 | 0 |
 | geneblocks | ok | 15 | 5 | 5 | 0 | 0 | 0 | 0 | 0 |
@@ -49,6 +49,8 @@ Side info (Bio.__version__ and the distribution that provides `Bio`):
 - dnaapler pai: `1.88 ['biopaithon']`
 - dnacauldron bio: `1.88 ['biopython']`
 - dnacauldron pai: `1.88 ['biopaithon']`
+- dnachisel bio: `1.88 ['biopython']`
+- dnachisel pai: `1.88 ['biopaithon']`
 - dnafeaturesviewer bio: `1.88 ['biopython']`
 - dnafeaturesviewer pai: `1.88 ['biopaithon']`
 - geneblocks bio: `1.88 ['biopython']`
@@ -130,12 +132,6 @@ Side info (Bio.__version__ and the distribution that provides `Bio`):
 - `tests.test_mask.TestMask::test_mask_fasta_invalid_sites[True]`
 - `tests.test_mask.TestMask::test_mask_fasta_normal_case`
 - `tests.test_mask.TestMask::test_mask_fasta_out_of_index`
-
-## dnachisel: bio project install failed
-
-
-## dnachisel: pai project install failed
-
 
 ## freesasa: bio project install failed
 
