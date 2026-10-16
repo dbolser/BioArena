@@ -1,6 +1,8 @@
-# The Arena
+# BioArena
 
-Differential testing of BioPAIthon against Biopython, release for release.
+Differential testing of [BioPAIthon](https://github.com/dbolser/BioPAIthon) against
+Biopython, release for release. First run: `biopython==1.88` vs `biopaithon==1.88`,
+results in [REPORT.md](REPORT.md) (the arena) and [CRUCIBLE.md](CRUCIBLE.md) (the crucible).
 
 Two venues:
 
@@ -21,3 +23,7 @@ uv run crucible.py run              # parse with both sides, diff
 ```
 
 Override the sides with `--bio biopython==1.88 --pai /path/to/checkout`.
+
+Targets that cannot be built in a plain venv (GoldenHinges needs swig, freesasa's
+setup.py misbehaves under modern setuptools) are left out of `targets.toml`.
+The harness logs each target's installs and test runs under `work/<name>/arena.log`.

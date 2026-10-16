@@ -13,9 +13,7 @@
 | dnacauldron | ok | 31 | 28 | 28 | 0 | 0 | 0 | 0 | 0 |
 | dnachisel | ok | 149 | 144 | 144 | 0 | 0 | 0 | 0 | 0 |
 | dnafeaturesviewer | ok | 20 | 17 | 17 | 0 | 0 | 0 | 0 | 0 |
-| freesasa | dropped | 0 | - | - | 0 | 0 | 0 | 0 | 0 |
 | geneblocks | ok | 15 | 5 | 5 | 0 | 0 | 0 | 0 | 0 |
-| goldenhinges | dropped | 0 | - | - | 0 | 0 | 0 | 0 | 0 |
 | graphein | ok | 74 | 54 | 54 | 0 | 0 | 0 | 0 | 0 |
 | macsyfinder | ok | 85 | 45 | 45 | 0 | 0 | 0 | 0 | 0 |
 | mdanalysis | ok | 58 | 52 | 52 | 0 | 0 | 0 | 0 | 0 |
@@ -132,15 +130,3 @@ Side info (Bio.__version__ and the distribution that provides `Bio`):
 - `tests.test_mask.TestMask::test_mask_fasta_invalid_sites[True]`
 - `tests.test_mask.TestMask::test_mask_fasta_normal_case`
 - `tests.test_mask.TestMask::test_mask_fasta_out_of_index`
-
-## freesasa: bio project install failed
-
-
-## freesasa: pai project install failed
-
-
-## goldenhinges: bio project install failed
-
-
-## goldenhinges: pai project install failed
-

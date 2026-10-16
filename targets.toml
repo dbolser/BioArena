@@ -39,13 +39,6 @@ repo = "https://github.com/Edinburgh-Genome-Foundry/GeneBlocks"
 tests = "pytest tests"
 
 [[target]]
-name = "goldenhinges"
-pre = ["setuptools<80", "wheel"]
-flags = ["--no-build-isolation"]
-repo = "https://github.com/Edinburgh-Genome-Foundry/GoldenHinges"
-tests = "pytest tests"
-
-[[target]]
 name = "crazydoc"
 extra = ["matplotlib"]
 repo = "https://github.com/Edinburgh-Genome-Foundry/crazydoc"
@@ -146,7 +139,7 @@ name = "pygenomeviz"
 repo = "https://github.com/moshi4/pyGenomeViz"
 tests = "pytest tests"
 
-# --- motifs
+# --- alignment via MDAnalysis (Bio.Align.PairwiseAligner, AlignIO)
 [[target]]
 name = "mdanalysis"
 repo = "https://github.com/MDAnalysis/mdanalysis"
@@ -154,14 +147,6 @@ install = ["MDAnalysis", "MDAnalysisTests"]
 tests = "pytest --pyargs MDAnalysisTests.analysis.test_align"
 
 # --- structures (Bio.PDB)
-[[target]]
-name = "freesasa"
-pre = ["setuptools<80", "wheel", "cython"]
-flags = ["--no-build-isolation"]
-repo = "https://github.com/freesasa/freesasa-python"
-submodules = true
-tests = "pytest test.py"
-
 [[target]]
 name = "graphein"
 repo = "https://github.com/a-r-j/graphein"
