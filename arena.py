@@ -3,6 +3,7 @@
 
 import argparse
 import concurrent.futures
+import datetime
 import json
 import os
 import shlex
@@ -174,8 +175,9 @@ def finish(res):
     return res
 
 
-def report(results):
+def report(results, args):
     lines = ["# Arena report", "",
+             f"`{args.bio}` (bio) vs `{args.pai}` (pai), run {datetime.date.today()}.", "",
              "| target | status | tests | pass bio | pass pai | regress | improve | only bio | only pai | other |",
              "|---|---|---|---|---|---|---|---|---|---|"]
     details = []
@@ -219,7 +221,7 @@ def main():
 
     if args.cmd == "report":
         results = [json.loads(p.read_text()) for p in sorted(RESULTS.glob("*.json"))]
-        print(report(results))
+        print(report(results, args))
         return
 
     targets = tomllib.loads((ROOT / "targets.toml").read_text())["target"]
@@ -227,7 +229,7 @@ def main():
         targets = [t for t in targets if t["name"] in args.targets]
     with concurrent.futures.ThreadPoolExecutor(args.jobs) as ex:
         results = list(ex.map(lambda t: run_target(t, args), targets))
-    report([json.loads(p.read_text()) for p in sorted(RESULTS.glob("*.json"))])
+    report([json.loads(p.read_text()) for p in sorted(RESULTS.glob("*.json"))], args)
     print(f"\nwrote {ROOT / 'REPORT.md'}")
 
 

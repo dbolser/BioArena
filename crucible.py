@@ -2,6 +2,8 @@
 """The crucible: parse wild files with both libraries and diff the digests."""
 
 import argparse
+import collections
+import datetime
 import json
 import random
 import subprocess
@@ -94,10 +96,10 @@ def run(args):
             sys.exit(f"probe failed on {side}")
         digests[side] = json.loads(out.stdout)
         (WORK / f"digest-{side}.json").write_text(out.stdout)
-    report(*(digests[s] for s in SIDES))
+    report(*(digests[s] for s in SIDES), args)
 
 
-def report(bio, pai):
+def report(bio, pai, args):
     files = sorted(set(bio) | set(pai))
     same, diffs = 0, []
     for f in files:
@@ -109,9 +111,24 @@ def report(bio, pai):
         diffs.append((f, {k: (a.get(k) if a else None, b.get(k) if b else None)
                           for k in keys if (a or {}).get(k) != (b or {}).get(k)}))
     errors = {s: sum(1 for r in d.values() if "error" in r) for s, d in (("bio", bio), ("pai", pai))}
-    lines = ["# Crucible report", "", f"files: {len(files)}, identical: {same}, differing: {len(diffs)}",
+    lines = ["# Crucible report", "",
+             f"`{args.bio}` (bio) vs `{args.pai}` (pai), run {datetime.date.today()}.", "",
+             f"files: {len(files)}, identical: {same}, differing: {len(diffs)}",
              f"parse errors: bio {errors['bio']}, pai {errors['pai']}", ""]
+    # A file that fails on one side only is summarised by its error, not listed.
+    fails = collections.Counter()
     for f, d in diffs:
+        x, y = d.get("error", (None, None))
+        if (x is None) != (y is None):
+            fails["bio" if x else "pai", x or y] += 1
+    if fails:
+        lines += ["## Fails on one side only", "", "| fails on | files | error |", "|---|---|---|"]
+        lines += [f"| {s} | {n} | `{e}` |" for (s, e), n in fails.most_common()]
+        lines.append("")
+    for f, d in diffs:
+        x, y = d.get("error", (None, None))
+        if (x is None) != (y is None):
+            continue
         lines.append(f"## {f}\n")
         for k, (x, y) in d.items():
             lines.append(f"- **{k}**")
@@ -141,7 +158,7 @@ def main():
     elif args.cmd == "run":
         run(args)
     else:
-        report(*(json.loads((WORK / f"digest-{s}.json").read_text()) for s in SIDES))
+        report(*(json.loads((WORK / f"digest-{s}.json").read_text()) for s in SIDES), args)
 
 
 if __name__ == "__main__":

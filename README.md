@@ -1,8 +1,10 @@
 # BioArena
 
 Differential testing of [BioPAIthon](https://github.com/dbolser/BioPAIthon) against
-Biopython, release for release. First run: `biopython==1.88` vs `biopaithon==1.88`,
-results in [REPORT.md](REPORT.md) (the arena) and [CRUCIBLE.md](CRUCIBLE.md) (the crucible).
+Biopython. Latest run: `biopython==1.88` vs BioPAIthon main, in [REPORT.md](REPORT.md)
+(the arena) and [CRUCIBLE.md](CRUCIBLE.md) (the crucible). The first run, release for
+release (`biopython==1.88` vs `biopaithon==1.88`), is kept in [REPORT-1.88.md](REPORT-1.88.md)
+and [CRUCIBLE-1.88.md](CRUCIBLE-1.88.md).
 
 Two venues:
 
