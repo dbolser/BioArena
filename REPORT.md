@@ -1,6 +1,6 @@
 # Arena report
 
-`biopython==1.88` (bio) vs BioPAIthon `main` at `c51116d01` (pai), run 2026-10-20.
+`biopython==1.88` (bio) vs BioPAIthon `main` at `6941a2138` (pai), run 2026-10-20.
 
 | target | status | tests | pass bio | pass pai | regress | improve | only bio | only pai | other |
 |---|---|---|---|---|---|---|---|---|---|
