@@ -1,6 +1,6 @@
 # Arena report
 
-`biopython==1.88` (bio) vs `biopaithon @ git+https://github.com/dbolser/BioPAIthon@9039f486f033141c4772ef6f24cdf090d1c0d51b` (pai), run 2026-10-17.
+`biopython==1.88` (bio) vs BioPAIthon `main` at `c51116d01` (pai), run 2026-10-20.
 
 | target | status | tests | pass bio | pass pai | regress | improve | only bio | only pai | other |
 |---|---|---|---|---|---|---|---|---|---|
@@ -81,10 +81,6 @@ Side info (Bio.__version__ and the distribution that provides `Bio`):
 - treetime pai: `1.89.dev0 ['biopaithon']`
 
 ## pyvolve: regress
-
-Not a code regression. pyvolve calls `float(Bio.__version__)`, which fails on the
-development version string `1.89.dev0` (`ValueError: could not convert string to float`).
-Upstream dev builds fail the same way; a release version string parses.
 
 - `tests.evolver_test.evolver_branchhet_tests::test_evolver_sitefile_seqfile_anc`
 - `tests.evolver_test.evolver_branchhet_tests::test_evolver_sitehet_seqfile`

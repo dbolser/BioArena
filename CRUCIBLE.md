@@ -1,6 +1,6 @@
 # Crucible report
 
-`biopython==1.88` (bio) vs `biopaithon @ git+https://github.com/dbolser/BioPAIthon@9039f486f033141c4772ef6f24cdf090d1c0d51b` (pai), run 2026-10-17.
+`biopython==1.88` (bio) vs BioPAIthon `main` at `c51116d01` (pai), run 2026-10-20.
 
 files: 697, identical: 487, differing: 210
 parse errors: bio 196, pai 0
