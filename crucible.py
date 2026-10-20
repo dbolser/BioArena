@@ -76,9 +76,10 @@ def fetch(args):
 def side_python(side, spec, args):
     venv = WORK / f"venv-{side}"
     py = venv / "bin" / "python"
-    if not py.exists():
-        subprocess.run(["uv", "venv", "--quiet", "--python", args.python, str(venv)], check=True)
-        subprocess.run(["uv", "pip", "install", "--quiet", "--python", str(py), spec, "msgpack"], check=True)
+    # Always rebuild: reusing a venv from an earlier run would test whatever
+    # it was built from, not spec.
+    subprocess.run(["uv", "venv", "--quiet", "--clear", "--python", args.python, str(venv)], check=True)
+    subprocess.run(["uv", "pip", "install", "--quiet", "--python", str(py), spec, "msgpack"], check=True)
     return py
 
 

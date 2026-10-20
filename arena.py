@@ -58,7 +58,7 @@ def build_venv(t, side, spec, d, src, args, log):
     venv = d / f"venv-{side}"
     py = venv / "bin" / "python"
     pyver = t.get("python", args.python)
-    rc, _ = sh(["uv", "venv", "--quiet", "--python", pyver, str(venv)], log=log)
+    rc, _ = sh(["uv", "venv", "--quiet", "--clear", "--python", pyver, str(venv)], log=log)
     if rc:
         return None, "venv failed"
     pip = ["uv", "pip", "install", "--quiet", "--python", str(py)]
