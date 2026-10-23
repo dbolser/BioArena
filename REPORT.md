@@ -1,6 +1,6 @@
 # Arena report
 
-`biopython==1.88` (bio) vs BioPAIthon `main` at `6941a2138` (pai), run 2026-10-20.
+`biopython==1.88` (bio) vs BioPAIthon `main` at `13d83b987` (pai), run 2026-10-23.
 
 | target | status | tests | pass bio | pass pai | regress | improve | only bio | only pai | other |
 |---|---|---|---|---|---|---|---|---|---|
@@ -18,7 +18,7 @@
 | geneblocks | ok | 15 | 5 | 5 | 0 | 0 | 0 | 0 | 0 |
 | graphein | ok | 74 | 54 | 54 | 0 | 0 | 0 | 0 | 0 |
 | macsyfinder | ok | 85 | 45 | 45 | 0 | 0 | 0 | 0 | 0 |
-| mdanalysis | ok | 58 | 52 | 52 | 0 | 0 | 0 | 0 | 0 |
+| mdanalysis | ok | 59 | 53 | 53 | 0 | 0 | 0 | 0 | 0 |
 | panaroo | ok | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | primavera | ok | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | pyani | ok | 120 | 88 | 88 | 0 | 0 | 0 | 0 | 0 |

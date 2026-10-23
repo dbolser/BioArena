@@ -1,6 +1,6 @@
 # Crucible report
 
-`biopython==1.88` (bio) vs BioPAIthon `main` at `6941a2138` (pai), run 2026-10-20.
+`biopython==1.88` (bio) vs BioPAIthon `main` at `13d83b987` (pai), run 2026-10-23.
 
 files: 697, identical: 487, differing: 210
 parse errors: bio 196, pai 0
